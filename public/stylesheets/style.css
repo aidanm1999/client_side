@@ -3,15 +3,24 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.body-dark-mode {
+    background-color: black;
+    color: white !important;
+}
+
+.tab-dark-mode {
+  background-color: #343a40;
+  color: white;
+}
+
+
 a {
   color: #00B7FF;
 }
 
 
 body {
-  background-color: #444;
-
-
+  background-color: #343a40;
 }
 
 
@@ -58,4 +67,10 @@ margin-bottom: 10px;
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+}
+
+@media print {
+  .print-button {
+    display: none;
+  }
 }
