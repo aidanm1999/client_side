@@ -6,7 +6,6 @@ function addToSchedule(id) {
     if (mySchedule.length < 1) {
         mySchedule.push(globalTalks[id]);
         paintSchedule();
-        console.log(mySchedule);
     } else {
         // Get the talk object
         let talk = globalTalks[id];
@@ -26,7 +25,7 @@ function addToSchedule(id) {
         }
         else {
             var proceed = confirm('Are you sure you would like to add ' + globalTalks[id].title + "? (You will be replacing " + conflictingTask.title + ")");
-            console.log(proceed);
+
             if (proceed) {
                 // Need to remove initial 
                 var index = mySchedule.indexOf(conflictingTask);
@@ -37,9 +36,6 @@ function addToSchedule(id) {
                 paintSchedule();
             }
         }
-
-        console.log("MySchedule Talks:", mySchedule);
-        console.log("Global Talks:", globalTalks);
     }
 }
 
@@ -87,6 +83,6 @@ function paintSchedule() {
 }
 
 function hideshow() {
-    document.getElementById('hidden-div').style.display = 'block'; 
+    document.getElementById('hidden-div').style.display = 'block';
     this.style.display = 'none'
 }  

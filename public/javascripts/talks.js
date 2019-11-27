@@ -1,15 +1,15 @@
 let globalTalks;
 
 $(document).ready(
-    function () {
-        gettalks();
+    async function () {
+        getTalks();
         $("#Search").on("keyup", function () {
             var value = $(this).val().toLowerCase();
             $("#talklist tr").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
-        openTab(event, 'Talks');
+
     }
 );
 
@@ -17,7 +17,7 @@ $(document).ready(
 
 
 
-function gettalks() {
+function getTalks() {
     // Gets the sessions in the talks
     $.ajax({
         url: "http://localhost:3000/sessions", success: function (sessions) {
@@ -113,7 +113,7 @@ function gettalks() {
                                     }
                                     var newAvgElement = document.getElementById("avg_rating_" + event.target.id);
                                     newAvgElement.innerHTML = newAvg.toFixed(2);
-
+                                    //createChart();
                                 }
                             });
 
@@ -145,6 +145,8 @@ function gettalks() {
 
                         // Add table row to table
                         talkList.appendChild(tableRow);
+
+                        createChart();
                     }
                 }
             });

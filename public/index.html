@@ -2,7 +2,8 @@
 <html>
 
 <head>
-
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+  <title>Technology Conferences</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/lib/bootstrap/bootstrap.min.css">
 </head>
@@ -12,17 +13,17 @@
   <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'Talks')">Talks</button>
     <button class="tablinks" onclick="openTab(event, 'Schedule')">Schedule</button>
-    <button class="tablinks" onclick="openTab(event, 'Charts')">Charts</button>
+    <button class="tablinks" onclick="openTab(event, 'Ratings')">Ratings</button>
     <button class="tablinks" id="dark-mode-button" onclick="darkMode();" style="float: right;">Enable Dark
       Mode</button>
   </div>
 
-  <div id="Talks" class="tabcontent">
+  <div id="Talks" class="tabcontent" style="display: block;">
     <br />
     <div class=" table-card ">
       <h3>Talks
       </h3>
-      <p>You can search for a talk by tag, speaker or session</p>
+      <p>You can search for a talk by tag, speaker or session. Hover over a talk title to see the description.</p>
       <input class="form-control" id="Search" type="text" placeholder="Search...">
       <br>
       <table class="table table-hover table-responsive">
@@ -45,7 +46,7 @@
     </div>
   </div>
 
-  <div id="Schedule" class="tabcontent">
+  <div id="Schedule" class="tabcontent" style="display: none;">
     <br />
     <div class=" table-card ">
       <h3>Schedule</h3>
@@ -153,8 +154,13 @@
     </div>
   </div>
 
-  <div id="Charts" class="tabcontent">
-    <canvas id="ratings"></canvas>
+  <div id="Ratings" class="tabcontent" style="display: none;">
+    <h3>Ratings
+    </h3>
+    <p>Below is a chart with the average rating each talk has recieved. Hover over a bar to see the title.</p>
+    <div style="height: 200;">
+      <canvas id="ratings"></canvas>
+    </div>
   </div>
 
 
@@ -166,6 +172,11 @@
   <script src="javascripts/schedule.js" type="text/javascript"></script>
   <script src="javascripts/tabs.js" type="text/javascript"></script>
   <script src="javascripts/appCharts.js" type="text/javascript"></script>
+
+
+  <script src="/__/firebase/7.5.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.5.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/init.js"></script>
 
 </body>
 
