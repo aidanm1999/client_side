@@ -76,7 +76,7 @@ function paintSchedule() {
             }
             var elementId = hours + ":" + minutes;
             var talkPart = document.getElementById(elementId);
-            talkPart.setAttribute("style", "background-color:LightCyan");
+            talkPart.setAttribute("style", "background-color: #079DE3");
 
         }
     });

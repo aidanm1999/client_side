@@ -20,9 +20,9 @@ $(document).ready(
 function getTalks() {
     // Gets the sessions in the talks
     $.ajax({
-        url: "http://localhost:3000/sessions", success: function (sessions) {
+        url: "https://us-central1-clientside-74013.cloudfunctions.net/sessions", success: function (sessions) {
             $.ajax({
-                url: "http://localhost:3000/talks", success: function (talks) {
+                url: "https://us-central1-clientside-74013.cloudfunctions.net/talks", success: function (talks) {
                     globalTalks = talks;
                     var talkList = document.getElementById("talklist");
                     //talkList.innerHTML="";
@@ -93,9 +93,12 @@ function getTalks() {
                         // YOUR RATING
                         var yourRatingText = document.createElement("SELECT");
                         yourRatingText.setAttribute("id", value.id);
-                        for (let index = 1; index <= 5; index++) {
+                        for (let index = 0; index <= 5; index++) {
                             var optionElement = document.createElement("OPTION");
                             optionElement.setAttribute("value", index);
+                            if (index == 0) {
+                                optionElement.setAttribute("hidden", "");
+                            }
                             var textNodeInOption = document.createTextNode(index);
                             optionElement.appendChild(textNodeInOption);
                             yourRatingText.appendChild(optionElement);
@@ -103,7 +106,7 @@ function getTalks() {
 
                         yourRatingText.addEventListener("change", (function (event) {
                             $.ajax({
-                                url: "http://localhost:3000/talks/rate/" + event.target.id + "/" + event.target.value, success: function (result) {
+                                url: "https://us-central1-clientside-74013.cloudfunctions.net/talkRatings?eventId=" + event.target.id + "&rating=" + event.target.value, success: function (result) {
                                     var newAvg = 0;
                                     if (result.ratings.length > 0) {
                                         result.ratings.forEach(element => {
