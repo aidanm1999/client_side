@@ -10,6 +10,10 @@ $(document).ready(
             });
         });
 
+        $(function () {
+            $("[data-toggle='tooltip']").tooltip();
+        });
+
     }
 );
 
@@ -31,7 +35,7 @@ function getTalks() {
 
                         // Create table datas
                         var tableRow = document.createElement("tr");
-                        var tableHeadNumber = document.createElement("th"); // Add scope = row                
+                        var tableHeadNumber = document.createElement("td"); // Add scope = row                
                         var tableDataName = document.createElement("td");
                         var tableDataSpeaker = document.createElement("td");
                         var tableDataSession = document.createElement("td");
@@ -47,7 +51,7 @@ function getTalks() {
 
                         // CREATE TEXT NODES -------------------------------------------------------------------------------------------------------------------
                         // NUMBER
-                        var numberText = document.createTextNode(value.id);
+                        var numberText = document.createTextNode(parseInt(value.id));
 
                         // NAME
                         var nameText = document.createTextNode(value.title);
@@ -75,6 +79,7 @@ function getTalks() {
                         var interestedLink = document.createElement('a');
                         interestedLink.setAttribute("onclick", "openTab(event, 'Schedule');addToSchedule(" + value.id + ");");
                         interestedLink.setAttribute("title", "Add event to your schedule");
+                        interestedLink.setAttribute("class", "btn btn-outline-primary");
                         interestedLink.setAttribute("href", "#");
                         var interestedText = document.createTextNode(value.time);
                         interestedLink.appendChild(interestedText);
@@ -92,10 +97,14 @@ function getTalks() {
 
                         // YOUR RATING
                         var yourRatingText = document.createElement("SELECT");
+                        yourRatingText.setAttribute("class", "form-control");
+                        yourRatingText.setAttribute("label", "Your rating");
                         yourRatingText.setAttribute("id", value.id);
                         for (let index = 0; index <= 5; index++) {
                             var optionElement = document.createElement("OPTION");
                             optionElement.setAttribute("value", index);
+
+
                             if (index == 0) {
                                 optionElement.setAttribute("hidden", "");
                             }
