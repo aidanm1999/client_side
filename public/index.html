@@ -204,7 +204,7 @@
   <div>Icons made by <a href="https://www.flaticon.com/authors/xnimrodx" title="xnimrodx">xnimrodx</a> from <a
       href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
 
-
+  <!--Javascript Library Files-->
   <script src="https://clientside.aidanm.com/public/javascripts/lib/jquery-3.4.1.min.js"
     type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
@@ -216,26 +216,20 @@
     type="text/javascript"></script>
   <script src="https://clientside.aidanm.com/public/javascripts/lib/Chart.bundle.min.js"
     type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/talks.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/schedule.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/tabs.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/appCharts.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/tableSorting.js" type="text/javascript"></script>
 
+  <!--Custom Javascript Files-->
+  <script src="https://clientside.aidanm.com/public/javascripts/index.js" type="text/javascript"></script>
+  <script src="https://clientside.aidanm.com/public/javascripts/tabs.js" type="text/javascript"></script>
+  <script src="https://clientside.aidanm.com/public/javascripts/talks.js" type="text/javascript"></script>
+  <script src="https://clientside.aidanm.com/public/javascripts/tableSorting.js" type="text/javascript"></script>
+  <script src="https://clientside.aidanm.com/public/javascripts/schedule.js" type="text/javascript"></script>
+  <script src="https://clientside.aidanm.com/public/javascripts/appCharts.js" type="text/javascript"></script>
+
+
+  <!--Firebase Javascript Files-->
   <script src="https://clientside.aidanm.com/__/firebase/7.5.0/firebase-app.js"></script>
   <script src="https://clientside.aidanm.com/__/firebase/7.5.0/firebase-analytics.js"></script>
   <script src="https://clientside.aidanm.com/__/firebase/init.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      console.log("Will the service worker register?");
-      navigator.serviceWorker.register('service-worker.js')
-        .then(function (reg) {
-          console.log("Yes, it did.");
-        }).catch(function (err) {
-          console.log("No it didn't. This happened: ", err)
-        });
-    }
-  </script>
 </body>
 
 </html>

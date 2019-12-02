@@ -1,21 +1,6 @@
 let globalTalks;
 
-$(document).ready(
-    async function () {
-        getTalks();
-        $("#Search").on("keyup", function () {
-            var value = $(this).val().toLowerCase();
-            $("#talklist tr").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
 
-        $(function () {
-            $("[data-toggle='tooltip']").tooltip();
-        });
-
-    }
-);
 
 
 
