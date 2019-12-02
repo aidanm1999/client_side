@@ -144,6 +144,7 @@ function getTalks() {
                         talkList.appendChild(tableRow);
 
                         createChart();
+                        sortTable(0);
                     }
                 }
             });
