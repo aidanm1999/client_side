@@ -13,6 +13,14 @@ $(document).ready(
                 });
         }
 
+        // Dark mode
+        if (!window.matchMedia) {
+            //matchMedia method not supported
+            return false;
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            //OS theme setting detected as dark
+            darkMode();
+        }
 
 
         // Populating talks
@@ -27,6 +35,7 @@ $(document).ready(
             });
         });
 
+        // Add tooltip for table
         $(function () {
             $("[data-toggle='tooltip']").tooltip();
         });
