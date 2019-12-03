@@ -81,8 +81,3 @@ function paintSchedule() {
         }
     });
 }
-
-function hideshow() {
-    document.getElementById('hidden-div').style.display = 'block';
-    this.style.display = 'none'
-}  

@@ -13,16 +13,3 @@ function openTab(evt, tabName) {
 }
 
 
-function darkMode() {
-  var darkMode = $('body').attr("class");
-  if (darkMode === "body-dark-mode") {
-    $("body").removeClass();
-    $(".tabcontent").removeClass('tab-dark-mode');
-    $("table").removeClass("table-dark");
-  } else {
-    $("body").addClass("body-dark-mode");
-    $(".tabcontent").addClass("tab-dark-mode");
-    $("table").addClass("table-dark");
-  }
-
-}

@@ -31,5 +31,18 @@ $(document).ready(
 
         // Enables dark mode on supported devices
         enableDarkMode();
+
+
+        $("#print-button").click(function () {
+            var isDarkMode = $('body').attr("class");
+            if (isDarkMode === "body-dark-mode") {
+                darkMode();
+                window.print();
+                darkMode();
+            } else {
+                window.print();
+            }
+
+        });
     }
 );
