@@ -13,19 +13,8 @@ $(document).ready(
                 });
         }
 
-        // Dark mode
-        if (!window.matchMedia) {
-            //matchMedia method not supported
-            return false;
-        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            //OS theme setting detected as dark
-            darkMode();
-        }
-
-
         // Populating talks
         getTalks();
-
 
         // Search listener
         $("#Search").on("keyup", function () {
@@ -40,5 +29,7 @@ $(document).ready(
             $("[data-toggle='tooltip']").tooltip();
         });
 
+        // Enables dark mode on supported devices
+        enableDarkMode();
     }
 );
