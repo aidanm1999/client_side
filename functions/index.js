@@ -41,7 +41,7 @@ exports.talks = functions.https.onRequest((request, response) => {
             snapshot.forEach(doc => {
                 talks.push(doc.data());
             });
-            console.log(talks);
+            talks.sort((a, b) => (parseInt(a.id) > parseInt(b.id)) ? 1 : -1);
             response.status(200);
             response.send(talks);
         });

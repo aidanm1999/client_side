@@ -24,17 +24,23 @@ function addToSchedule(id) {
             paintSchedule();
         }
         else {
-            var proceed = confirm('Are you sure you would like to add ' + globalTalks[id].title + "? (You will be replacing " + conflictingTask.title + ")");
-
-            if (proceed) {
-                // Need to remove initial 
-                var index = mySchedule.indexOf(conflictingTask);
-                if (index > -1) {
-                    mySchedule.splice(index, 1);
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'question',
+                text: 'Are you sure you would like to add ' + globalTalks[id].title + "? (You will be replacing " + conflictingTask.title + ")",
+                showCancelButton: true,
+                focusConfirm: true,
+            }).then((result) => {
+                if (result.value) {
+                    // Need to remove initial 
+                    var index = mySchedule.indexOf(conflictingTask);
+                    if (index > -1) {
+                        mySchedule.splice(index, 1);
+                    }
+                    mySchedule.push(globalTalks[id]);
+                    paintSchedule();
                 }
-                mySchedule.push(globalTalks[id]);
-                paintSchedule();
-            }
+            });
         }
     }
 }

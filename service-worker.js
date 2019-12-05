@@ -1,9 +1,34 @@
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
-    '/'//,
+    // HTML Pages
+    '/',
+
+    // Javascript Files
+    '/public/javascripts/appCharts.js',
+    '/public/javascripts/darkMode.js',
+    '/public/javascripts/index.js',
+    '/public/javascripts/schedule.js',
+    '/public/javascripts/tableSorting.js',
+    '/public/javascripts/tabs.js',
+    '/public/javascripts/talks.js',
+
+    //CSS Files
     //'/public/main.css',
     //'/script/main.js'
 ];
+
+let deferredPrompt;
+
+self.addEventListener('beforeinstallprompt', (e) => {
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    // Update UI notify the user they can add to home screen
+    showInstallPromotion();
+});
+
+function showInstallPromotion() {
+    alert('HIT ME');
+}
 
 self.addEventListener('install', function (event) {
     // Perform install steps

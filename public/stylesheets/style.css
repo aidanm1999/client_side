@@ -1,5 +1,6 @@
+
+
 body {
-  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -14,16 +15,6 @@ body {
 }
 
 
-a {
-  color: #00B7FF;
-}
-
-
-body {
-  background-color: #343a40;
-}
-
-
 
 .table-card {
 padding-left: 10px;
@@ -35,8 +26,9 @@ margin-bottom: 10px;
 /* Style the tab */
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
   background-color: #f1f1f1;
+  position:fixed;
+  width: 100vw;
 }
 
 /* Style the buttons inside the tab */
@@ -49,6 +41,16 @@ margin-bottom: 10px;
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 17px;
+}
+
+.tab img {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  margin: 11px 11px 10px 11px;
+  height: 27px;
+  width: 27px;
 }
 
 /* Change background color of buttons on hover */
@@ -64,9 +66,8 @@ margin-bottom: 10px;
 /* Style the tab content */
 .tabcontent {
   display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+  padding: 60px 6px 6px 6px;
+  /* border-top: none; */
 }
 
 @media print {
@@ -74,3 +75,4 @@ margin-bottom: 10px;
     display: none;
   }
 }
+

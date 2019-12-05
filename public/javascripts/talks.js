@@ -64,7 +64,7 @@ function getTalks() {
                         var interestedLink = document.createElement('a');
                         interestedLink.setAttribute("onclick", "openTab(event, 'Schedule');addToSchedule(" + value.id + ");");
                         interestedLink.setAttribute("title", "Add event to your schedule");
-                        interestedLink.setAttribute("class", "btn btn-outline-primary");
+                        interestedLink.setAttribute("class", "btn btn-primary");
                         interestedLink.setAttribute("href", "#");
                         var interestedText = document.createTextNode(value.time);
                         interestedLink.appendChild(interestedText);
@@ -81,12 +81,20 @@ function getTalks() {
                         var ratingText = document.createTextNode(rating.toFixed(2));
 
                         // YOUR RATING
-                        var yourRatingText = document.createElement("SELECT");
+                        var yourRatingText = document.createElement("select");
                         yourRatingText.setAttribute("class", "form-control");
-                        yourRatingText.setAttribute("label", "Your rating");
+                        //yourRatingText.setAttribute("label", "Your rating");
                         yourRatingText.setAttribute("id", value.id);
+
+                        var labelForRating = document.createElement("label");
+                        labelForRating.setAttribute("for", value.id);
+                        var labelForRatingText = document.createTextNode(value.id);
+                        labelForRating.appendChild(labelForRatingText);
+                        //labelForRating.setAttribute("hidden", "");
+
+
                         for (let index = 0; index <= 5; index++) {
-                            var optionElement = document.createElement("OPTION");
+                            var optionElement = document.createElement("option");
                             optionElement.setAttribute("value", index);
 
 
@@ -128,6 +136,7 @@ function getTalks() {
                         tableDataTag.appendChild(tagText);
                         tableDataInterested.appendChild(interestedLink);
                         tableDataRating.appendChild(ratingText);
+                        tableDataYourRating.appendChild(labelForRating);
                         tableDataYourRating.appendChild(yourRatingText);
 
                         // Add table datas to table row
@@ -144,7 +153,7 @@ function getTalks() {
                         talkList.appendChild(tableRow);
 
                         createChart();
-                        sortTable(0);
+                        //sortTable(0);
                     }
                 }
             });
