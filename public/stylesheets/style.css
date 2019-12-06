@@ -28,7 +28,7 @@ margin-bottom: 10px;
   overflow: hidden;
   background-color: #f1f1f1;
   position:fixed;
-  width: 100vw;
+  width: 100%;
 }
 
 /* Style the buttons inside the tab */
@@ -76,3 +76,34 @@ margin-bottom: 10px;
   }
 }
 
+
+
+
+/* Card Styling */
+.talk-card-padding {
+  padding: 8px;
+}
+
+.talk-card-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.talk-card-middle-icon {
+  vertical-align: middle;
+}
+
+.talk-card-middle-text {
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.talk-card-cta-option {
+  width: 100%;
+}
+
+.talk-card-cta-option-div {
+  padding: 4px;
+}
