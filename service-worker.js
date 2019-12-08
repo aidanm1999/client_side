@@ -4,18 +4,18 @@ var urlsToCache = [
     '/',
 
     // Javascript Files
-    '/public/javascripts/appCharts.js',
-    '/public/javascripts/darkMode.js',
-    '/public/javascripts/getTalks.js',
-    '/public/javascripts/index.js',
-    '/public/javascripts/paintTalkCards.js',
-    '/public/javascripts/paintTalkTable.js',
-    '/public/javascripts/schedule.js',
-    '/public/javascripts/tableSorting.js',
-    '/public/javascripts/tabs.js',
+    '/public/js/appCharts.js',
+    '/public/js/darkMode.js',
+    '/public/js/getTalks.js',
+    '/public/js/index.js',
+    '/public/js/paintTalkCards.js',
+    '/public/js/paintTalkTable.js',
+    '/public/js/schedule.js',
+    '/public/js/tableSorting.js',
+    '/public/js/tabs.js',
 
     //CSS Files
-    //'/public/main.css',
+    '/public/style.css',
     //'/script/main.js'
 ];
 
@@ -48,16 +48,16 @@ self.addEventListener('fetch', function (event) {
         caches.match(event.request)
             .then(function (response) {
                 // Cache hit - return response
-                // if (response) {
-                //     return response;
-                // }
+                if (response) {
+                    return response;
+                }
 
                 return fetch(event.request).then(
                     function (response) {
                         // Check if we received a valid response
-                        // if (!response || response.status !== 200 || response.type !== 'basic') {
-                        // return response;
-                        // }
+                        if (!response || response.status !== 200 || response.type !== 'basic') {
+                            return response;
+                        }
 
                         // IMPORTANT: Clone the response. A response is a stream
                         // and because we want the browser to consume the response
