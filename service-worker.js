@@ -6,11 +6,13 @@ var urlsToCache = [
     // Javascript Files
     '/public/javascripts/appCharts.js',
     '/public/javascripts/darkMode.js',
+    '/public/javascripts/getTalks.js',
     '/public/javascripts/index.js',
+    '/public/javascripts/paintTalkCards.js',
+    '/public/javascripts/paintTalkTable.js',
     '/public/javascripts/schedule.js',
     '/public/javascripts/tableSorting.js',
     '/public/javascripts/tabs.js',
-    '/public/javascripts/talks.js',
 
     //CSS Files
     //'/public/main.css',

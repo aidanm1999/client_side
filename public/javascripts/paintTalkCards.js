@@ -1,5 +1,5 @@
 function paintTalkCards() {
-    var cardContainer = document.getElementById("card-container");
+    var cardContainer = document.getElementById("talk-cards-div");
     //talkList.innerHTML="";
     for (i = 0; i < globalTalks.length; i++) {
         var value = globalTalks[i];
@@ -26,7 +26,7 @@ function paintTalkCards() {
         // Image
         var imageHeader = document.createElement("img");
         imageHeader.setAttribute("class", "card-img-top talk-card-image");
-        imageHeader.setAttribute("src", "https://clientside.aidanm.com/public/images/favicon-32x32.png");
+        imageHeader.setAttribute("src", "/public/images/talks/" + (i + 1) + "-min.jpg?tr=w-400,h-300,bl-30,q-50");
         imageHeader.setAttribute("alt", value.title);
 
         // Body
@@ -191,7 +191,13 @@ function paintTalkCards() {
 
         // Parents
         var talkCard = document.createElement("div");
-        talkCard.setAttribute("class", "card");
+        // If dark mode, add class card bg-dark instead of card
+        var darkMode = $('body').attr("class");
+        if (darkMode == "body-dark-mode") {
+            talkCard.setAttribute("class", "card bg-dark");
+        } else {
+            talkCard.setAttribute("class", "card");
+        }
         talkCard.appendChild(imageHeader);
         talkCard.appendChild(bodyDiv);
 

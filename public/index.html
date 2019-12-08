@@ -8,29 +8,29 @@
   <meta name="keywords" content="HTML,CSS,XML,JavaScript,Talks,Computing">
   <meta name="author" content="Aidan Marshall">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://clientside.aidanm.com/public/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://clientside.aidanm.com/public/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://clientside.aidanm.com/public/images/favicon-16x16.png">
-  <link rel="manifest" href="https://clientside.aidanm.com/site.webmanifest">
-  <link rel="mask-icon" href="https://clientside.aidanm.com/public/images/safari-pinned-tab.svg" color="#428bca">
-  <link rel="shortcut icon" href="https://clientside.aidanm.com/public/images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/images/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/public/images/safari-pinned-tab.svg" color="#428bca">
+  <link rel="shortcut icon" href="/public/images/favicon.ico">
   <meta name="msapplication-TileColor" content="#428bca">
-  <meta name="msapplication-config" content="https://clientside.aidanm.com/browserconfig.xml">
+  <meta name="msapplication-config" content="/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
   <script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="aidanm1999"
     data-description="Support me on Buy me a coffee!"
     data-message="Like my work? Consider supporting by buying me a coffee!" data-color="#FF813F" data-position="right"
     data-x_margin="18" data-y_margin="18"></script>
 
-  <link rel="shortcut icon" type="image/x-icon" href="https://clientside.aidanm.com/public/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico" />
   <title>Technology Conferences</title>
 
 </head>
 
 <body>
 
-  <div class="tab">
-    <img src="https://clientside.aidanm.com/public/images/favicon-32x32.png" alt="Logo of person at a computer"
+  <div class="tab" style="z-index: 100;">
+    <img src="/public/images/favicon-32x32.png" alt="Logo of person at a computer"
       title="Logo made by Freepik from flaticon.com" />
     <button class="tablinks" onclick="openTab(event, 'Talks')">Talks</button>
     <button class="tablinks" onclick="openTab(event, 'Schedule')">Schedule</button>
@@ -43,50 +43,76 @@
   <div id="Talks" class="tabcontent" style="display: block;">
     <br />
     <div class=" table-card ">
-      <h3>Talks
-      </h3>
-      <label for="Search">You can search for a talk by tag, speaker or session. Hover over a talk title to see the
-        description.</label>
+      <span>
+        <h3>Talks
 
-      <input class="form-control" id="Search" type="text" placeholder="Search...">
+          <div class="btn-group" role="group" aria-label="Basic example" style="float:right;">
+            <button type="button" id="table-action-button" class="btn talk-view-radio-icon"
+              onclick="displayTalkType('table');">
+              <i class="material-icons-round">view_list</i>
+            </button>
+            <button type="button" id="card-action-button" class="btn talk-view-radio-icon"
+              onclick="displayTalkType('card');">
+              <i class="material-icons-round">view_module</i>
+            </button>
+          </div>
+        </h3>
+      </span>
 
-      <br>
-      <table class="table table-hover table-responsive" id="TalksTable">
-        <thead>
-          <tr>
-            <th scope="col" onclick="sortTable(0)" style="cursor: pointer;" data-toggle="tooltip" title="Click to sort"
-              data-placement="bottom">
-              #</th>
-            <th scope="col" onclick="sortTable(1)" style="cursor: pointer;" data-toggle="tooltip" title="Click to sort"
-              data-placement="bottom">
-              Talk Name</th>
-            <th scope="col" onclick="sortTable(2)" style="cursor: pointer;" data-toggle="tooltip" title="Click to sort"
-              data-placement="bottom">
-              Speaker</th>
-            <th scope="col" onclick="sortTable(3)" style="cursor: pointer;" data-toggle="tooltip" title="Click to sort"
-              data-placement="bottom">
-              Session</th>
-            <th scope="col" onclick="sortTable(4)" style="cursor: pointer;" data-toggle="tooltip" title="Click to sort"
-              data-placement="bottom">
-              Tags</th>
-            <th scope="col" onclick="sortTable(5)" style="cursor: pointer;" data-toggle="tooltip" title="Click to sort"
-              data-placement="bottom">
-              Interested?</th>
-            <th scope="col" onclick="sortTable(6)" style="cursor: pointer;" data-toggle="tooltip" title="Click to sort"
-              data-placement="bottom">
-              Avg ⭐</th>
-            <th scope="col" onclick="sortTable(7)" style="cursor: pointer;" data-toggle="tooltip" title="Click to sort"
-              data-placement="bottom">
-              Your ⭐</th>
-          </tr>
-        </thead>
-        <tbody id="talklist">
+      <div id="table-div" style="display: block;">
+        <label for="table-search">You can search for a talk by tag, speaker or session. Hover over a talk title to see
+          the description.</label>
 
-        </tbody>
-      </table>
-    </div>
+        <input class="form-control" id="table-search" type="text" placeholder="Search...">
 
-    <div class="row" id="card-container" style="margin-left: 0px;margin-right: 0px;">
+        <br>
+        <table class="table table-hover table-responsive" id="TalksTable">
+          <thead>
+            <tr>
+              <th scope="col" onclick="sortTable(0)" style="cursor: pointer;" data-toggle="tooltip"
+                title="Click to sort" data-placement="bottom">
+                #</th>
+              <th scope="col" onclick="sortTable(1)" style="cursor: pointer;" data-toggle="tooltip"
+                title="Click to sort" data-placement="bottom">
+                Talk Name</th>
+              <th scope="col" onclick="sortTable(2)" style="cursor: pointer;" data-toggle="tooltip"
+                title="Click to sort" data-placement="bottom">
+                Speaker</th>
+              <th scope="col" onclick="sortTable(3)" style="cursor: pointer;" data-toggle="tooltip"
+                title="Click to sort" data-placement="bottom">
+                Session</th>
+              <th scope="col" onclick="sortTable(4)" style="cursor: pointer;" data-toggle="tooltip"
+                title="Click to sort" data-placement="bottom">
+                Tags</th>
+              <th scope="col" onclick="sortTable(5)" style="cursor: pointer;" data-toggle="tooltip"
+                title="Click to sort" data-placement="bottom">
+                Interested?</th>
+              <th scope="col" onclick="sortTable(6)" style="cursor: pointer;" data-toggle="tooltip"
+                title="Click to sort" data-placement="bottom">
+                Avg ⭐</th>
+              <th scope="col" onclick="sortTable(7)" style="cursor: pointer;" data-toggle="tooltip"
+                title="Click to sort" data-placement="bottom">
+                Your ⭐</th>
+            </tr>
+          </thead>
+          <tbody id="talk-table">
+          </tbody>
+        </table>
+      </div>
+
+
+      <div id="card-div" style="display: none;">
+        <label for="table-search">You can search for a talk by tag, speaker or session. Hover over a talk title to see
+          the description.</label>
+
+        <input class="form-control" id="card-search" type="text" placeholder="Search...">
+        <div id="talk-cards-div" class="row" style="margin-left: 0px;margin-right: 0px;margin-top: 6px;">
+        </div>
+      </div>
+
+
+
+
 
     </div>
   </div>
@@ -216,34 +242,29 @@
 
 
 
-  <link rel="stylesheet" type="text/css"
-    href="https://clientside.aidanm.com/public/stylesheets/lib/bootstrap/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://clientside.aidanm.com/public/stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="/public/stylesheets/lib/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/public/stylesheets/style.css" />
 
   <!--Javascript Library Files-->
-  <script src="https://clientside.aidanm.com/public/javascripts/lib/jquery-3.4.1.min.js"
-    type="text/javascript"></script>
+  <script src="/public/javascripts/lib/jquery-3.4.1.min.js" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
     integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
     crossorigin="anonymous"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/lib/bootstrap/bootstrap.bundle.min.js"
-    type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/lib/bootstrap/bootstrap.min.js"
-    type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/lib/sweetalert2.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/lib/Chart.bundle.min.js"
-    type="text/javascript"></script>
+  <script src="/public/javascripts/lib/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
+  <script src="/public/javascripts/lib/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/public/javascripts/lib/sweetalert2.js" type="text/javascript"></script>
+  <script src="/public/javascripts/lib/Chart.bundle.min.js" type="text/javascript"></script>
 
   <!--Custom Javascript Files-->
-  <script src="https://clientside.aidanm.com/public/javascripts/index.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/tabs.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/darkMode.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/paintTalkTable.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/paintTalkCards.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/getTalks.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/tableSorting.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/schedule.js" type="text/javascript"></script>
-  <script src="https://clientside.aidanm.com/public/javascripts/appCharts.js" type="text/javascript"></script>
+  <script src="/public/javascripts/index.js" type="text/javascript"></script>
+  <script src="/public/javascripts/tabs.js" type="text/javascript"></script>
+  <script src="/public/javascripts/darkMode.js" type="text/javascript"></script>
+  <script src="/public/javascripts/paintTalkTable.js" type="text/javascript"></script>
+  <script src="/public/javascripts/paintTalkCards.js" type="text/javascript"></script>
+  <script src="/public/javascripts/getTalks.js" type="text/javascript"></script>
+  <script src="/public/javascripts/tableSorting.js" type="text/javascript"></script>
+  <script src="/public/javascripts/schedule.js" type="text/javascript"></script>
+  <script src="/public/javascripts/appCharts.js" type="text/javascript"></script>
 
 
   <!--Firebase Javascript Files-->

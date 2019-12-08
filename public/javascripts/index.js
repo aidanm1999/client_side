@@ -16,10 +16,17 @@ $(document).ready(
         // Populating talks
         getTalks();
 
-        // Search listener
-        $("#Search").on("keyup", function () {
+        // Search listeners
+        $("#table-search").on("keyup", function () {
             var value = $(this).val().toLowerCase();
-            $("#talklist tr").filter(function () {
+            $("#talk-table tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+
+        $("#card-search").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#talk-cards-div .talk-card-padding").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
@@ -29,8 +36,13 @@ $(document).ready(
             $("[data-toggle='tooltip']").tooltip();
         });
 
+        // Checks the device type to see if cards or table should be displayed
+        deviceChecker();
+
         // Enables dark mode on supported devices
         enableDarkMode();
+
+
 
 
         $("#print-button").click(function () {
@@ -46,3 +58,60 @@ $(document).ready(
         });
     }
 );
+
+
+function deviceChecker() {
+    var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
+    if (isMobile) {
+        // Set view to card over table in the talks tab
+        if ($("#table-action-button").hasClass("btn-outline-dark") == false) {
+            // This means the table button is selected
+            // Now function check if user is in dark mode or light mode
+            if (darkMode === "body-dark-mode") {
+                $("#table-action-button").removeClass("btn-light").addClass("btn-outline-light");
+                $("#card-action-button").removeClass("btn-outline-light").addClass("btn-light");
+            } else {
+                $("#table-action-button").removeClass("btn-dark").addClass("btn-outline-dark");
+                $("#card-action-button").removeClass("btn-outline-dark").addClass("btn-dark");
+            }
+
+            displayTalkType("card");
+        }
+    }
+}
+
+function displayTalkType(type) {
+    if (type == "card") {
+        // Hide table show card
+        $("#card-div").removeAttr("style").attr("style", "display: block;");
+        $("#table-div").removeAttr("style").attr("style", "display: none;");
+
+        // Change the styling of the buttons
+        if ($("#card-action-button").hasClass("btn-outline-dark")) {
+            // Table selected - light mode
+            $("#card-action-button").removeClass("btn-outline-dark").addClass("btn-dark");
+            $("#table-action-button").removeClass("btn-dark").addClass("btn-outline-dark");
+        } else {
+            // Card selected - dark mode
+            $("#card-action-button").removeClass("btn-outline-light").addClass("btn-light");
+            $("#table-action-button").removeClass("btn-light").addClass("btn-outline-light");
+        }
+
+
+    } else if (type == "table") {
+        // Hide card show table
+        $("#card-div").removeAttr("style").attr("style", "display: none;");
+        $("#table-div").removeAttr("style").attr("style", "display: block;");
+
+        // Change the styling of the buttons
+        if ($("#table-action-button").hasClass("btn-outline-dark")) {
+            // Table selected - light mode
+            $("#card-action-button").removeClass("btn-dark").addClass("btn-outline-dark");
+            $("#table-action-button").removeClass("btn-outline-dark").addClass("btn-dark");
+        } else {
+            // Card selected - dark mode
+            $("#card-action-button").removeClass("btn-light").addClass("btn-outline-light");
+            $("#table-action-button").removeClass("btn-outline-light").addClass("btn-light");
+        }
+    }
+}

@@ -1,5 +1,5 @@
 function paintTalkTable() {
-    var talkList = document.getElementById("talklist");
+    var talkList = document.getElementById("talk-table");
     //talkList.innerHTML="";
     for (i = 0; i < globalTalks.length; i++) {
         var value = globalTalks[i];    // using ad-hoc object

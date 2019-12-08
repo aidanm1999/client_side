@@ -10,7 +10,8 @@ body {
 }
 
 .tab-dark-mode {
-  background-color: #343a40;
+  background-color: #111111;
+  /*background-color: #343a40;*/
   color: white;
 }
 
@@ -86,12 +87,21 @@ margin-bottom: 10px;
 
 .talk-card-image {
   width: 100%;
-  height: auto;
-  max-height: 200px;
+  height: 200px;
   object-fit: cover;
 }
 
 .talk-card-middle-icon {
+  vertical-align: middle;
+  line-height:0;
+}
+
+.talk-view-radio-icon {
+  vertical-align: middle;
+  line-height:0;
+}
+
+.view-option-center-icon {
   vertical-align: middle;
 }
 
