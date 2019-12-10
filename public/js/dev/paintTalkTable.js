@@ -74,6 +74,7 @@ function paintTalkTable() {
 
         var labelForRating = document.createElement("label");
         labelForRating.setAttribute("for", value.id);
+        labelForRating.setAttribute("hidden", "");
         var labelForRatingText = document.createTextNode(value.id);
         labelForRating.appendChild(labelForRatingText);
         //labelForRating.setAttribute("hidden", "");
