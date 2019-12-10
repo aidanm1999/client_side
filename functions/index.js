@@ -31,6 +31,8 @@ app.use(express.urlencoded({ extended: false }));
 admin.initializeApp();
 var db = admin.firestore();
 
+
+
 let talks = [];
 let sessions = [];
 
