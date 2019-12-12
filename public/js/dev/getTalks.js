@@ -15,8 +15,8 @@ function getTalks() {
                         globalSessions = sessions;
                         paintTalkTable();
                         paintTalkCards();
-                        cacheTalks();
-                        cacheSessions();
+                        //cacheTalks();
+                        //cacheSessions();
                     }
                 });
             }
